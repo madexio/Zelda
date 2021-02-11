@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour
     public KeyCode attackKey;
     public KeyCode joyAttack;
     public KeyCode spawnEnemyKey;
+    public KeyCode spawnSmokeBomb;
     public KeyCode joySpawnEnemy;
 
     public KeyCode rightFire;
@@ -60,6 +61,8 @@ public class PlayerController : MonoBehaviour
     public GameObject projectile;
     
     public GameObject boulderEnemy;
+
+    public GameObject smokeBomb;
 
     // Start is called before the first frame update
     void Start()
@@ -120,6 +123,10 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(spawnEnemyKey) || Input.GetKeyDown(joySpawnEnemy))
         {
             spawnEnemy();
+        }
+        if (Input.GetKeyDown(spawnSmokeBomb))
+        {
+            throwSmokeBomb();
         }
         //if (Input.GetKeyDown(quitKey))
         Debug.Log(Input.GetAxis("HorizontalShoot"));
@@ -229,5 +236,11 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 pos = new Vector3(Random.Range(-10, 10), Random.Range(-5, 5), 0);
         Instantiate(boulderEnemy, pos, Quaternion.identity);
+    }
+
+    void throwSmokeBomb()
+    {
+        Instantiate(smokeBomb, this.transform);
+        this.transform.DetachChildren();
     }
 }

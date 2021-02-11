@@ -55,7 +55,7 @@ public class EnemyCode : MonoBehaviour
 
         Vector3 move = followPlayer();
 
-        enemyTransform.position = enemyTransform.position + move;
+        enemyTransform.position = enemyTransform.position + move * Time.deltaTime;
         //sword.GetComponent<Transform>().position = enemyTransform.position;
     }
     Vector3 followPlayer()
@@ -80,7 +80,7 @@ public class EnemyCode : MonoBehaviour
         if (Physics2D.Raycast(enemyTransform.position + (player.GetComponent<Transform>().position - enemyTransform.position).normalized * 1.2f,
             player.GetComponent<Transform>().position - enemyTransform.position).collider.gameObject.tag != "Player") { return move; }
 
-        move = Vector3.Normalize(player.transform.position - enemyTransform.position)/200;
+        move = Vector3.Normalize(player.transform.position - enemyTransform.position);
         move = move * speed;
         //Up
         if (move.x < move.y && move.x > -move.y) { rot = -270.0f; }
