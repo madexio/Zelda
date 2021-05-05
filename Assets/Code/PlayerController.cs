@@ -128,26 +128,58 @@ public class PlayerController : MonoBehaviour
         {
             throwSmokeBomb();
         }
-        //if (Input.GetKeyDown(quitKey))
-        Debug.Log(Input.GetAxis("HorizontalShoot"));
+
+        Vector3 projDir;
+        int projInt;
         if (Input.GetAxis("HorizontalShoot") < 0)
         {
+
+            
             fireTime += Time.deltaTime;
+            if (Input.GetAxis("VerticalShoot") < 0)
+            {
+                projDir = new Vector3(-1 / Mathf.Sqrt(2), -1 / Mathf.Sqrt(2), 0);
+                projInt = 1;
+            } else if (Input.GetAxis("VerticalShoot") > 0)
+            {
+                projDir = new Vector3(-1 / Mathf.Sqrt(2), 1 / Mathf.Sqrt(2), 0);
+                projInt = 7;
+            } else
+            {
+                projDir = new Vector3(-1, 0, 0);
+                projInt = 0;
+            }
             if (fireTime > fireRate)
             {
-                projectile.GetComponent<projectileScript>().dir = new Vector3(-1, 0, 0);
-                projectile.GetComponent<projectileScript>().dirInt = 0;
+                projectile.GetComponent<projectileScript>().dir = projDir;
+                projectile.GetComponent<projectileScript>().dirInt = projInt;
                 Instantiate(projectile, playerTransform.position, playerTransform.rotation);
                 fireTime = 0;
             }
+
         }
         else if (Input.GetAxis("HorizontalShoot") > 0)
         {
             fireTime += Time.deltaTime;
+            if (Input.GetAxis("VerticalShoot") < 0)
+            {
+                projDir = new Vector3(1 / Mathf.Sqrt(2), -1 / Mathf.Sqrt(2), 0);
+                projInt = 3;
+            }
+            else if (Input.GetAxis("VerticalShoot") > 0)
+            {
+                projDir = new Vector3(1 / Mathf.Sqrt(2), 1 / Mathf.Sqrt(2), 0);
+                projInt = 5;
+            }
+            else
+            {
+                projDir = new Vector3(1, 0, 0);
+                projInt = 4;
+            }
             if (fireTime > fireRate)
             {
-                projectile.GetComponent<projectileScript>().dir = new Vector3(1, 0, 0);
-                projectile.GetComponent<projectileScript>().dirInt = 2;
+                projectile.GetComponent<projectileScript>().dir = projDir;
+                projectile.GetComponent<projectileScript>().dirInt = projInt;
                 Instantiate(projectile, playerTransform.position, playerTransform.rotation);
                 fireTime = 0;
             }
@@ -158,7 +190,7 @@ public class PlayerController : MonoBehaviour
             if (fireTime > fireRate)
             {
                 projectile.GetComponent<projectileScript>().dir = new Vector3(0, -1, 0);
-                projectile.GetComponent<projectileScript>().dirInt = 1;
+                projectile.GetComponent<projectileScript>().dirInt = 2;
                 Instantiate(projectile, playerTransform.position, playerTransform.rotation);
                 fireTime = 0;
             }
@@ -169,7 +201,7 @@ public class PlayerController : MonoBehaviour
             if (fireTime > fireRate)
             {
                 projectile.GetComponent<projectileScript>().dir = new Vector3(0, 1, 0);
-                projectile.GetComponent<projectileScript>().dirInt = 3;
+                projectile.GetComponent<projectileScript>().dirInt = 6;
                 Instantiate(projectile, playerTransform.position, playerTransform.rotation);
                 fireTime = 0;
             }

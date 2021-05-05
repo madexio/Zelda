@@ -29,7 +29,7 @@ public class projectileScript : MonoBehaviour
     void Update()
     {
         projTransform.localPosition += speed * dir;
-        projTransform.rotation = Quaternion.Euler(0, 0, dirInt * 90);
+        projTransform.rotation = Quaternion.Euler(0, 0, dirInt * 45);
         RaycastHit2D hit;
         if (hit = Physics2D.Raycast(projTransform.position, dir, 0.25f))
         {
