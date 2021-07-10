@@ -59200,6 +59200,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7463309934923507994, guid: 0a6617218f07a144fad8f5622e8777fd,
         type: 3}
+      propertyPath: smokeBomb
+      value: 
+      objectReference: {fileID: 3769716411907971561, guid: 3a59ec2fadd0e63479fd151cf3f84cab,
+        type: 3}
+    - target: {fileID: 7463309934923507994, guid: 0a6617218f07a144fad8f5622e8777fd,
+        type: 3}
       propertyPath: attackCode
       value: 32
       objectReference: {fileID: 0}
@@ -59234,6 +59240,11 @@ PrefabInstance:
         type: 3}
       propertyPath: spawnEnemyKey
       value: 114
+      objectReference: {fileID: 0}
+    - target: {fileID: 7463309934923507994, guid: 0a6617218f07a144fad8f5622e8777fd,
+        type: 3}
+      propertyPath: spawnSmokeBomb
+      value: 102
       objectReference: {fileID: 0}
     - target: {fileID: 7463309934923507995, guid: 0a6617218f07a144fad8f5622e8777fd,
         type: 3}
